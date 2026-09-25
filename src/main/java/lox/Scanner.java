@@ -112,7 +112,7 @@ class Scanner {
         TokenType type = keywords.get(text);
         if (type == null) type = IDENTIFIER;
 
-        addToken(IDENTIFIER);
+        addToken(type);
     }
 
     private void number() {
