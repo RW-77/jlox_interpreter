@@ -1,0 +1,47 @@
+class Doughnut {
+  cook() {
+    print "Fry until golden brown.";
+  }
+}
+
+class BostonCream < Doughnut {
+  init(filling) {
+    this.filling = filling;
+  }
+
+  cook() {
+    super.cook();
+    print "Pipe full of " + this.filling + ".";
+  }
+}
+
+var d = BostonCream("custard");
+d.cook();
+// expect: Fry until golden brown.
+// expect: Pipe full of custard.
+
+print d; // expect: BostonCream instance
+print BostonCream; // expect: BostonCream
+
+class Point {
+  init(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  add(other) {
+    return Point(this.x + other.x, this.y + other.y);
+  }
+}
+
+var p = Point(1, 2).add(Point(3, 4));
+print p.x; // expect: 4
+print p.y; // expect: 6
+
+// Bound methods remember the instance they were accessed from.
+var add = p.add;
+print add(Point(10, 10)).x; // expect: 14
+
+// Fields can be added to instances at any time.
+p.label = "sum";
+print p.label; // expect: sum

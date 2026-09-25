@@ -1,0 +1,21 @@
+// Static resolution: a closure always sees the variable that was in scope
+// where it was declared, even if a later declaration shadows it.
+var a = "global";
+{
+  fun showA() {
+    print a;
+  }
+
+  showA(); // expect: global
+  var a = "block";
+  showA(); // expect: global
+  print a; // expect: block
+}
+
+// Nested block scopes shadow outer variables.
+var x = "outer";
+{
+  var x = "inner";
+  print x; // expect: inner
+}
+print x; // expect: outer

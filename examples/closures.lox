@@ -1,0 +1,31 @@
+// Functions are first-class and close over their environment.
+fun makeCounter() {
+  var i = 0;
+  fun count() {
+    i = i + 1;
+    return i;
+  }
+
+  return count;
+}
+
+var counter = makeCounter();
+print counter(); // expect: 1
+print counter(); // expect: 2
+
+// Each call to makeCounter gets its own independent closure.
+var other = makeCounter();
+print other(); // expect: 1
+print counter(); // expect: 3
+
+fun compose(f, g) {
+  fun composed(x) {
+    return f(g(x));
+  }
+  return composed;
+}
+
+fun addOne(x) { return x + 1; }
+fun double(x) { return x * 2; }
+
+print compose(addOne, double)(5); // expect: 11

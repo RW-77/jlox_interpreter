@@ -1,0 +1,27 @@
+var a = 1;
+var b = 2;
+
+if (a < b) print "less"; else print "not less"; // expect: less
+if (a > b) print "greater"; else print "not greater"; // expect: not greater
+
+// Logical operators short-circuit and return an operand, not a boolean.
+print nil or "default"; // expect: default
+print "first" or "second"; // expect: first
+print false and "unreached"; // expect: false
+print 1 and 2; // expect: 2
+
+// Sum 1..100 with a while loop.
+var total = 0;
+var n = 1;
+while (n <= 100) {
+  total = total + n;
+  n = n + 1;
+}
+print total; // expect: 5050
+
+// for loops desugar to while loops.
+var product = 1;
+for (var i = 1; i <= 5; i = i + 1) {
+  product = product * i;
+}
+print product; // expect: 120

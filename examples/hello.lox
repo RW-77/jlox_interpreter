@@ -1,0 +1,5 @@
+print "Hello, world!"; // expect: Hello, world!
+
+// Built-in native function.
+print clock; // expect: <native fn>
+print clock() > 0; // expect: true

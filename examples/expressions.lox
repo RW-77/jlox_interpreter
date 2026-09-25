@@ -1,0 +1,20 @@
+// Arithmetic, comparison, equality, and string concatenation.
+print 1 + 2 * 3; // expect: 7
+print (1 + 2) * 3; // expect: 9
+print 7 / 2; // expect: 3.5
+print -(3 * 4); // expect: -12
+print 10 - 4 - 3; // expect: 3
+
+print 1 < 2; // expect: true
+print 2 <= 1; // expect: false
+print 1 == 1.0; // expect: true
+print "a" != "b"; // expect: true
+print nil == false; // expect: false
+
+print "foo" + "bar"; // expect: foobar
+print "a" + "b" == "ab"; // expect: true
+
+// Only nil and false are falsey.
+print !nil; // expect: true
+print !0; // expect: false
+print !""; // expect: false
